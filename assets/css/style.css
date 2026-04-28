@@ -177,7 +177,10 @@ footer {
 .dino-title {
     color: var(--neon-cyan);
     font-size: 1.2rem;
-    text-shadow: 0 0 5px var(--neon-cyan);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px var(--neon-cyan); /* Brillo cian */
+    margin-bottom: 10px;
 }
 
 .badge-diet {
@@ -190,10 +193,32 @@ footer {
 
 .text-magenta {
     color: var(--neon-magenta);
+    text-shadow: 0 0 5px var(--neon-magenta); /* Brillo magenta */
+    font-weight: bold;
 }
 
 .border-neon {
     border: 1px solid rgba(0, 242, 254, 0.5);
+}
+
+.dino-info p.text-muted {
+    color: #ffffff !important; /* Blanco puro para máxima lectura */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); /* Brillo blanco suave */
+    opacity: 1 !important; /* Asegurar que no sea semitransparente */
+}
+
+.dino-info p:not(.text-muted) {
+    color: #e0e6ed; /* Gris muy claro para el resto del texto meta */
+}
+
+.dino-info .d-flex span {
+    color: var(--neon-cyan); /* Texto cian para los números */
+    text-shadow: 0 0 3px var(--neon-cyan);
+    font-size: 0.75rem;
+    font-weight: bold;
 }
 
 .dino-image-container img {
