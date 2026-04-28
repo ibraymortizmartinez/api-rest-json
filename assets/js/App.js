@@ -12,7 +12,15 @@ export class App {
     async init() {
         try {
             this.ipTag.innerText = await this.service.getIP();
-        } catch { this.ipTag.innerText = "ERROR_OFFLINE"; }
+        } catch (err) {
+    this.board.innerHTML = `
+        <div class="text-center py-5 border-neon-red">
+            <h3 class="text-danger font-monospace">[ CRITICAL_SYSTEM_ERROR ]</h3>
+            <p class="text-white small">CAUSA: ${err.message}</p>
+            <button onclick="location.reload()" class="btn btn-outline-danger btn-sm mt-3">REBOOT_SYSTEM</button>
+        </div>
+    `;
+}
         
         this.btn.addEventListener('click', () => this.handleSearch());
     }
