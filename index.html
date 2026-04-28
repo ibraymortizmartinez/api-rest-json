@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: API REST JSON - Subdomain Scan</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Escáner de Subdominios</h1>
+        
+        <div id="ip-container" class="info-box">
+            <p><strong>Tu dirección IP es:</strong> <span id="client-ip">Cargando...</span></p>
+        </div>
+
+        <div class="search-box">
+            <p>Ingresa un dominio para analizar:</p>
+            <input type="text" id="domain-input" placeholder="ejemplo: google.com">
+            <button id="scan-btn">Escanear API</button>
+        </div>
+
+        <div id="result-container" class="result-box">
+            <p>Los resultados en formato JSON aparecerán aquí.</p>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
