@@ -26,8 +26,16 @@ export class App {
     }
 
     async handleSearch() {
-        const era = this.select.value;
-        if (!era) return;
+    const era = this.select.value;
+    if (!era) return;
+
+    // ACTUALIZACIÓN DE IP: Llama de nuevo al servicio antes del escaneo
+    try {
+        const currentIp = await this.service.getIP();
+        this.ipTag.innerText = currentIp; 
+    } catch {
+        this.ipTag.innerText = "VPN_SYNC_ERROR";
+    }
 
         // Efecto de carga visual
         this.board.innerHTML = `
