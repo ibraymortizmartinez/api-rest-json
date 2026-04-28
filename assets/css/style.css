@@ -1,85 +1,212 @@
+/* Paleta de Colores Cyberpunk */
 :root {
-    --primary-color: #2ecc71;
-    --dark-bg: #1a1a2e;
-    --card-bg: #ffffff;
-    --text-main: #2d3436;
-    --accent-color: #00d2ff;
+    --bg-deep: #050509; /* Fondo casi negro */
+    --bg-card: #0d111a; /* Fondo de tarjeta oscuro */
+    --neon-cyan: #00f2fe; /* Cian eléctrico */
+    --neon-magenta: #ff00ff; /* Magenta neón */
+    --neon-green: #39ff14; /* Verde neón para éxitos */
+    --text-main: #e0e6ed;
+    --text-muted: #8892b0;
+    --border-glow: 0 0 15px rgba(0, 242, 254, 0.5);
 }
+
+/* Tipografía Global Futurista */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap');
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Roboto Mono', monospace; /* Fuente de código por defecto */
+    background-color: var(--bg-deep);
     color: var(--text-main);
-    line-height: 1.6;
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(255, 0, 255, 0.1) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(0, 242, 254, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
-/* Navbar Moderna */
+/* Títulos con Orbitron */
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navbar Neo-Glow */
 .navbar {
-    background: var(--dark-bg) !important;
-    border-bottom: 3px solid var(--primary-color);
-    padding: 1rem 0;
+    background: rgba(13, 17, 26, 0.95) !important;
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    backdrop-filter: blur(5px);
 }
 
-/* Tarjeta Principal (Glassmorphism sutil) */
+.navbar-brand {
+    color: var(--neon-cyan) !important;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Tarjeta Principal "Cyber-Panel" */
 .main-card {
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    background: var(--card-bg);
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 12px;
+    box-shadow: var(--border-glow);
+    position: relative;
     overflow: hidden;
 }
 
+/* Efecto de línea de escaneo en la tarjeta */
+.main-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 242, 254, 0.05), transparent);
+    animation: scanline 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanline {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
 .card-header-custom {
-    background: #f8f9fa;
-    border-bottom: 1px solid #edf2f7;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 242, 254, 0.2);
     padding: 1.5rem;
 }
 
-/* Estilo del Badge de IP */
+/* Estilo de la IP (Glow) */
 #client-ip {
-    font-family: 'monospace';
-    letter-spacing: 1px;
-    padding: 8px 15px;
-    font-size: 0.95rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+    font-weight: bold;
+    border: 1px solid var(--neon-green);
 }
 
-/* Selector y Botón */
-.form-select, .btn {
-    border-radius: 8px;
-    padding: 12px;
+/* Controles de Formulario Cyberpunk */
+.form-select {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--neon-cyan);
+    border: 1px solid rgba(0, 242, 254, 0.5);
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
 }
 
+.form-select:focus {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Botón Neón Glitch */
 .btn-primary-custom {
-    background: linear-gradient(135deg, var(--primary-color), #27ae60);
-    border: none;
-    color: white;
-    font-weight: 600;
-    transition: transform 0.2s;
+    background: transparent;
+    border: 2px solid var(--neon-magenta);
+    color: var(--neon-magenta);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px var(--neon-magenta);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .btn-primary-custom:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+    background: var(--neon-magenta);
+    color: var(--bg-deep);
+    box-shadow: 0 0 20px var(--neon-magenta);
+    text-shadow: none;
 }
 
-/* Terminal de Resultados (Estilo IDE) */
+/* Terminal de Resultados "Matrix-Style" */
 #result-container {
-    background: #282a36; /* Tema Dracula */
-    border-radius: 12px;
+    background: #000000;
+    border: 1px solid rgba(57, 255, 20, 0.3); /* Borde verde sutil */
+    border-radius: 8px;
     padding: 20px;
-    border: 1px solid #44475a;
-    box-shadow: inset 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 15px rgba(57, 255, 20, 0.1);
 }
 
 pre {
-    color: #f8f8f2;
+    color: var(--neon-green); /* Texto verde Matrix */
     font-size: 0.9rem;
     margin: 0;
+    text-shadow: 0 0 2px var(--neon-green);
+}
+
+/* Estilo de la barra de desplazamiento (Scrollbar) */
+#result-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#result-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 242, 254, 0.3);
+    border-radius: 4px;
+}
+
+#result-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 242, 254, 0.6);
 }
 
 /* Footer */
 footer {
-    background: var(--dark-bg);
-    color: #a0aec0;
-    margin-top: auto;
+    background: #000000;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+/* Contenedor de Tarjetas Individuales */
+.dino-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-left: 4px solid var(--neon-magenta);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dino-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+    border-color: var(--neon-cyan);
+}
+
+.dino-title {
+    color: var(--neon-cyan);
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.badge-diet {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    text-transform: uppercase;
+}
+
+.text-magenta {
+    color: var(--neon-magenta);
+}
+
+.border-neon {
+    border: 1px solid rgba(0, 242, 254, 0.5);
+}
+
+.dino-image-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    filter: grayscale(40%) contrast(120%);
+}
+
+/* Personalización del contenedor principal para que quepan las tarjetas */
+#result-container {
+    padding: 25px !important;
+    background: transparent !important; /* Ahora el fondo lo dan las tarjetas */
+    border: none !important;
+    box-shadow: none !important;
 }
