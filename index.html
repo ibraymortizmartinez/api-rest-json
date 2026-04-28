@@ -2,30 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad: API REST JSON - Subdomain Scan</title>
+    <title>DinoScanner | API REST Science</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
-    <div class="container">
-        <h1>Escáner de Subdominios</h1>
-        
-        <div id="ip-container" class="info-box">
-            <p><strong>Tu dirección IP es:</strong> <span id="client-ip">Cargando...</span></p>
+    <nav class="navbar navbar-dark bg-success shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">🦖 Dino-Explorer OOP</a>
+            <span class="navbar-text">Programador: <strong>Tu Nombre Completo</strong></span>
         </div>
+    </nav>
 
-        <div class="search-box">
-            <p>Ingresa un dominio para analizar:</p>
-            <input type="text" id="domain-input" placeholder="ejemplo: google.com">
-            <button id="scan-btn">Escanear API</button>
+    <main class="container my-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">IP de Red: <span id="client-ip" class="badge bg-success">...</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small">Selecciona una era geológica para obtener datos JSON de la API:</p>
+                        
+                        <div class="input-group mb-4">
+                            <label class="input-group-text">Era</label>
+                            <select class="form-select" id="era-select">
+                                <option value="" selected disabled>Elegir período...</option>
+                                <option value="Cretaceous">Cretácico</option>
+                                <option value="Jurassic">Jurásico</option>
+                                <option value="Triassic">Triásico</option>
+                            </select>
+                            <button class="btn btn-success" id="scan-btn">Consultar API</button>
+                        </div>
+
+                        <div id="result-container" class="bg-dark text-info p-3 rounded overflow-auto" style="height: 350px;">
+                            <p class="text-secondary text-center mt-5">Selecciona un período para ver el JSON</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div id="result-container" class="result-box">
-            <p>Los resultados en formato JSON aparecerán aquí.</p>
-        </div>
-    </div>
+    <footer class="bg-dark text-white-50 text-center py-3">
+        <p class="mb-0">Proyecto: Consumo de API REST - Ciencia | 2026</p>
+    </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
