@@ -34,13 +34,12 @@ export class App {
     }
 
     render(json) {
-        // Mostramos el JSON formateado (Punto 6)
-        this.board.innerHTML = `
-            <div class="d-flex justify-content-between mb-2">
-                <span class="badge bg-success">200 OK</span>
-                <small class="text-info">Resultados: ${json.data.length}</small>
-            </div>
-            <pre style="color: #4dfc4d; font-size: 0.8rem;">${JSON.stringify(json, null, 4)}</pre>
-        `;
-    }
+    this.board.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom border-secondary pb-2">
+            <span class="text-success small fw-bold">● API CONNECTION SUCCESS</span>
+            <span class="badge bg-secondary">Objects: ${json.data.length}</span>
+        </div>
+        <pre style="color: #bd93f9; line-height: 1.4;">${JSON.stringify(json, null, 4)}</pre>
+    `;
+}
 }
